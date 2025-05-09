@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>الاختبارات</title>
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap-icons.css" />
+    <link rel="stylesheet" href="/css/docs.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/404.css">
+
+
+  </head>
+  <body>
+    <%- include("../../common/views/navbar.view.ejs") %>
+
+    <div class="container-lg">
+
+      <table class="table table-dark table-hover table-rounded d-rtl text-center" style="border: 1px solid #eeeeee7a">
+        <thead style="color: rgb(13 202 240)">
+          <tr>
+            <td>اسم الاختبار</td>
+            <td>المجموعة</td>
+            <td>تاريخ الاضافة</td>
+            <td>اجمالي عدد الاسئلة</td>
+            <td>عدد الاسئلة</td>
+            <td>مدة الامتحان</td>
+            <td>عدد الممتحنين</td>
+            <td>مفتوح</td>
+            <td>حذف</td>
+          </tr>
+        </thead>
+        <tbody id="examsTableBodyId"></tbody>
+      </table>
+
+      <div class="d-flex gap-3 py-2 justify-content-center bg-dark" style="border: 1px solid #dddddd71;">
+        <select id="examinerStatusSelectId" style="width: 130px; border: 1px solid #dddddd71; outline: none;" class="py-2 pe-2 fs-6 bg-dark text-light rounded">
+          <option value="">الكل</option>
+          <option value="1">اختبر</option>
+          <option value="0">لم يختبر</option>
+        </select>
+        <input id="searchInputId" type="search" placeholder="ابحث هنا" class=" py-2 px-3 fs-6 bg-dark text-light rounded" style="border: 1px solid #dddddd71;" />
+        <a
+          id="downloadExcelFileLinkId"
+          href="#"
+          target="_blank"
+          class="d-flex align-items-center gap-1 text-success fs-5 fw-bold"
+          style="text-decoration: none;"
+          >تحميل اكسيل <i class="bi-download fs-5"></i>
+        </a>
+      </div>
+
+      <div style="max-height: 65vh; overflow-y: scroll; direction: ltr;">
+        <table class="table table-dark table-hover table-rounded d-rtl text-center mb-0" style="border: 1px solid #eeeeee7a">
+          <thead style="color: rgb(13 202 240); position: sticky; top: -1px;">
+            <tr>
+              <td>اسم الممتحن</td>
+              <td>الرقم العسكري</td>
+              <td>النتيجة</td>
+            </tr>
+          </thead>
+          <tbody id="examinersTableBodyId"></tbody>
+        </table>
+      </div>
+      
+    </div>
+    <script src="/js/axios.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/select.options.js"></script>
+    <script src="/js/utils.js"></script>
+    <script src="/js/admin.exam.js"></script>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<nav class="navbar navbar-expand-lg bg-dark mb-3" style="border-bottom: 3px solid rgb(13 202 240)">
+  <div class="container">
+    <div class="d-flex">
+      <button id="logoutButtonId" class="text-danger rounded-2 border-0 py-1 px-4 bg-transparent fs-6 fw-bold">
+        <i class="bi-arrow-right-square"></i>
+        تسجيل الخروج</button>
+        <div id="usernameDivId" class="rounded-pill px-5 py-1 fw-bold" style="border: 2px solid rgb(13 202 240); background: rgb(13 202 240)"></div>
+    </div>
+    
+    <div id="adminButtonsContainerId" class="navbar-nav gap-4 fw-bold fs-6 d-none">
+      <a class="button nav-link text-light" href="/">الصفحة الرئيسية</a>
+      <a class="button nav-link text-light" href="/admin/exams">الاختبارات</a>
+      <a class="button nav-link text-light" href="/admin/examiners">الممتحنين</a>
+      <a class="button nav-link text-light" href="/admin/course">المحاضرات</a>
+      <a class="button nav-link text-light" href="/admin/lecture">المناهج</a>
+    </div>
+
+    <div id="examinerButtonsContainerId" class="navbar-nav gap-4 fw-bold fs-6 d-none">
+      <a class="button nav-link text-light" href="/exams">الاختبارات</a>
+      <a class="button nav-link text-light" href="/courses">المحاضرات</a>
+      <a class="button nav-link text-light" href="/lecture">المناهج</a>
+    </div>
+    <a class="navbar-brand d-flex gap-2 fs-5 fw-bold text-light align-items-center" href="/">
+      هيئة الاستخبارات العسكرية
+      <img src="/images/logo.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top" />
+    </a>
+  </div>
+</nav>
+<script>
+  const logoutButton = document.getElementById('logoutButtonId')
+  const usernameDiv = document.getElementById('usernameDivId')
+  const adminButtonsContainer = document.getElementById('adminButtonsContainerId')
+  const examinerButtonsContainer = document.getElementById('examinerButtonsContainerId')
+  const adminButtons = document.querySelectorAll("#adminButtonsContainerId > a")
+  const examinerButtons = document.querySelectorAll("#examinerButtonsContainerId > a")
+  const adminButtonsUrlRegexp = [ /^\/$/, /^\/admin\/exams/, /^\/admin\/examiners/, /^\/admin\/course/, /^\/admin\/(lecture|document)/ ]
+  const examinerButtonsUrlRegexp = [ /^\/exams/, /^\/course/, /^\/(lecture|document)/ ]
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    axios.get('/api/profile').then((response) => {
+      if (response.data.data.name === null) {
+        usernameDiv.innerHTML = 'ادمن'
+        adminButtonsContainer.classList.remove('d-none')
+        adminButtonsUrlRegexp.forEach((regexp, index) => {
+          if (regexp.test(location.pathname)) {
+            adminButtons[index].classList.add('nav-active')
+          }
+        })
+      } else {
+        usernameDiv.innerHTML = response.data.data.name
+        examinerButtonsContainer.classList.remove('d-none')
+        examinerButtonsUrlRegexp.forEach((regexp, index) => {
+          if (regexp.test(location.pathname)) {
+            examinerButtons[index].classList.add('nav-active')
+          }
+        })
+      }
+    }).catch((error) => {
+      usernameDiv.innerHTML = 'لا يوجد'
+    })
+  })
+
+  logoutButton.addEventListener('click', () => {
+    axios.get('/api/auth/logout').then(() => {
+      location.assign('/auth/login')
+    }).catch(() => {
+      alert('خدث خطأ اثناء تسجيل الخروج')
+    })
+  })
+</script>

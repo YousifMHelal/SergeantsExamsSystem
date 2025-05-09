@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>الاختبارات</title>
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap-icons.css" />
+    <link rel="stylesheet" href="/css/docs.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    
+  </head>
+  <body>
+    <%- include("../../common/views/navbar.view.ejs") %>
+    <div class="container-lg">
+      <table
+        class="table table-dark table-hover table-rounded d-rtl text-center"
+        style="border: 1px solid #eeeeee7a"
+      >
+        <thead style="color: rgb(13 202 240); position: sticky; top: 0; z-index: -2;">
+          <tr>
+            <td>اسم الاختبار</td>
+            <td>عدد الاسئلة</td>
+            <td>مدة الاختبار</td>
+            <td>دخول الاختبار</td>
+          </tr>
+        </thead>
+        <tbody id="examsTableBodyId"></tbody>
+      </table>
+    </div>
+
+    <script src="/js/axios.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/select.options.js"></script>
+    <script src="/js/examiner.exams.js"></script>
+  </body>
+</html>

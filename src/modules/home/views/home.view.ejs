@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap-icons.css" />
+    <link rel="stylesheet" href="/css/docs.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <title>الصفحة الرئيسية</title>
+    <style>
+      .stats {
+        width: 250px;
+      } 
+      .stats:not(:first-child) {
+        border-right: 2px solid #ddd;
+      }
+    </style>
+  </head>
+  <body class="bg-dark text-light">
+    <%- include("../../common/views/navbar.view.ejs") %>
+    <div class="container">
+      <h1 class="text-center mt-5">الاحصائيات</h1>
+      <div class="d-flex align-items-center justify-content-between mt-5">
+        <div class="p-3 stats">
+          <h3 style="color: #6ea8fe;" class="me-5">الممتحنين</h3>
+          <div class="w-75 h-75 rounded-4 d-flex align-items-center justify-content-center text-light m-auto mt-5" style="background: #6ea8fe;" >
+            <span id="examinersCountDivId" style="font-size: 7rem" class="fw-bold"></span>
+          </div>
+        </div>
+        <div class="p-3 stats">
+          <h3 style="color: #a98eda" class="me-5">الامتحانات</h3>
+          <div class="w-75 h-75 rounded-4 d-flex align-items-center justify-content-center text-light m-auto mt-5" style="background: #a98eda;" >
+            <span id="examsCountDivId" style="font-size: 7rem" class="fw-bold"></span>
+          </div>
+        </div>
+        <div class="p-3 stats">
+          <h3 style="color: #6edff6" class="me-5">المجموعات</h3>
+          <div class="w-75 h-75 rounded-4 d-flex align-items-center justify-content-center text-light m-auto mt-5" style="background: #6edff6;" >
+            <span id="groupsCountDivId" style="font-size: 7rem" class="fw-bold"></span>
+          </div>
+        </div>
+        <div class="p-3 stats">
+          <h3 style="color: #dfaf68" class="me-5">المحاضرات</h3>
+          <div class="w-75 h-75 rounded-4 d-flex align-items-center justify-content-center text-light m-auto mt-5" style="background: #dfaf68;">
+            <span id="coursesCountDivId" style="font-size: 7rem" class="fw-bold"></span>
+          </div>
+        </div>
+
+        <div class="p-3 stats">
+          <h3 style="color: #79dfc1" class="me-5">المناهج</h3>
+          <div class="w-75 h-75 rounded-4 d-flex align-items-center justify-content-center text-light m-auto mt-5" style="background: #79dfc1;">
+            <span id="lecutresCountDivId" style="font-size: 7rem" class="fw-bold"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/axios.js"></script>
+    <script src="/js/home.js"></script>
+  </body>
+</html>

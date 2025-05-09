@@ -1,0 +1,1 @@
+export const TABLE_COLUMN_REGEXP = /^[a-z_,]+$/

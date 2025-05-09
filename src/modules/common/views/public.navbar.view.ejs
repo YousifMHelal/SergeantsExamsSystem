@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg bg-dark mb-3" style="border-bottom: 3px solid rgb(13 202 240)">
+  <div class="container">
+    <div id="buttonsContainerId" class="navbar-nav gap-4 fw-bold fs-6">
+      <a class="button nav-link text-light" href="/auth/login">تسجيل الدخول</a>
+      <a class="button nav-link text-light" href="/home">الصفحة الرئيسية</a>
+      <a class="button nav-link text-light" href="/courses">المحاضرات</a>
+      <a class="button nav-link text-light" href="/lecture">المناهج</a>
+    </div>
+    <a class="navbar-brand d-flex gap-2 fs-5 fw-bold text-light align-items-center" href="/home">
+      هيئة الاستخبارات العسكرية
+      <img src="/images/logo.png" alt="Logo" width="50" height="50" class="d-inline-block align-text-top" />
+    </a>
+  </div>
+</nav>
+<script>
+  const buttonsContainer = document.getElementById('buttonsContainerId')
+  const buttons = document.querySelectorAll("#buttonsContainerId > a")
+  const buttonsUrlRegexp = [ /^$/, /^\/home/, /^\/courses/, /^\/(lecture|document)/ ]
+  document.addEventListener('DOMContentLoaded', () => {
+    buttonsUrlRegexp.forEach((regexp, index) => {
+      if (regexp.test(location.pathname)) {
+        buttons[index].classList.add('nav-active')
+      }
+    })
+  })
+</script>

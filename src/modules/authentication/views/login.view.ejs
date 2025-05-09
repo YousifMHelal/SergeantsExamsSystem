@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>صفحة تسجيل الدخول</title>
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap-icons.css" />
+    <link rel="stylesheet" href="/css/docs.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
+
+  <style>
+    body {
+      overflow: hidden;
+      background-image: url(/images/08.jpg);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  </style>
+  <body>
+    <main class="row">
+      <div class="col Bg-contianer position-relative"></div>
+      <div
+        class="col d-flex justify-content-center align-items-center flex-column gap-4 form"
+      >
+        <div
+          class="p-5 text-light d-flex flex-column justify-content-center gap-4 rounded-4"
+          style="background: rgb(33 37 41 / 68%)"
+        >
+          <div style="text-align: center">
+            <h2>تسجيل الدخول</h2>
+            <p>من فضلك قم بادخال اسم المستخدم وكلمة المرور</p>
+          </div>
+          <div class="d-rtl d-flex flex-column align-items-start">
+            <label for="" class="fs-6 mb-2">اسم المستخدم</label>
+            <input
+              type="text"
+              id="usernameInputId"
+              class="px-2 py-1 bg-transparent text-light"
+              placeholder="اسم المستخدم"
+            />
+          </div>
+          <div class="d-rtl d-flex flex-column align-items-start">
+            <label for="" class="fs-6 mb-2">كلمة السر</label>
+           <div class="position-relative">
+            <input
+            type="password"
+            id="passwordInputId"
+            class="px-2 py-1 bg-transparent text-light"
+            placeholder="ادخل كلمة السر"
+          />
+          <div style="cursor: pointer; top: 4px;" class="position-absolute start-0 text-light fw-bold">
+            <span id="showButtonId" style="display: none; color: var(--main);"><i class="ps-1 bi bi-eye fs-5"></i></span>
+            <span id="hideButtonId" style="display: none; color: var(--main);"><i class="ps-1 bi bi-eye-slash fs-5"></i></span>
+          </div>
+           </div>
+          </div>
+
+          <button
+            id="submitButtonId"
+            class="px-5 py-2 rounded-pill mx-auto fw-bold"
+            style="width: max-content"
+          >
+            تسجيل الدخول
+          </button>
+          <label
+            id="messageLabelId"
+            class="text-danger"
+            style="display: none"
+          ></label>
+        </div>
+      </div>
+    </main>
+    <script src="/js/axios.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/utils.js"></script>
+    <script src="/js/login.js"></script>
+  </body>
+</html>

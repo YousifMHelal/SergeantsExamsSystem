@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap-icons.css" />
+    <link rel="stylesheet" href="/css/docs.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <style>     
+        .form-input {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            padding: 30px 0;
+            box-shadow: 0 0 16px 5px #ffffff47;;
+        }
+
+        .form-input button {
+            border: none;
+            border-bottom: 2px solid var(--main);
+            width: max-content;
+        }
+
+        .form-input button:hover {
+            border: none;
+            border-bottom: 2px solid white;
+            background-color: var(--main) !important;
+            color: black !important;
+            border-radius: 5px; 
+        }
+    </style>
+    <title>المناهج</title>
+</head>
+
+<body class="position-relative">
+
+    <%- include("../../common/views/navbar.view.ejs") %>
+
+    <main class="text-light d-flex align-items-center gap-5 flex-column">
+        <section id="addLecturesContainerId" style="z-index: 999;" class="form-input bg-dark text-light rounded-2 px-4 d-flex flex-column gap-2 d-none">
+            <span id="lectureExitButtonId" class="text-danger border-0 pointer fs-4 fw-bolder position-absolute" style="top: 0; right: 10px;">x</span>
+            <input id="lectureNameInputId" type="text" placeholder="أسم المنهج" class="bg-dark text-light py-2 mb-2 w-75 px-3 mx-auto" />
+            <button id="addPartButtonId" class="rounded-pill px-4 py-1 text-dark border-0 fw-bold ms-auto" style="background: var(--main)">أضافة محاضرة</button>
+                <div style="max-height: 50vh; overflow-y: scroll; direction: ltr;">
+                    <table class="table table-dark table-hover table-rounded d-rtl text-center" style="border: 1px solid #eeeeee7a">
+                        <thead style="color: rgb(13 202 240);position: sticky; top: 1px;">
+                            <tr>
+                                <th>الاسم</th>
+                                <th>الصفحات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="selectionsBodyId">
+                            <tr>
+                                <td><input id="nameInputId" class="w-100" type="text" placeholder="الاسم"></td>
+                                <td><input id="expresionInputId" class="w-100" type="text" placeholder="مثال: 1,2,3"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <button id="submitButtonId" class="bg-dark text-light py-3 px-5 mx-auto">حفظ</button>
+
+        </section>
+    
+        <section class="container flex-wrap gap-4 align-items-center justify-content-center mb-5">
+            <div class="w-100 h-100 p-3 rounded" style="background: rgb(41 40 40 / 80%); z-index: -5;">
+                <div class="d-flex gap-4 justify-content-between align-items-center p-2 input-container w-100 mb-2">
+                    <input id="lectureInputId" type="file" accept=".pdf" class="d-none" />
+                    <label for="lectureInputId" class="pointer fw-bold d-flex align-items-center gap-3">
+                        <span class="align-items-center gap-1 d-flex" style="color: rgb(13 202 240); height: 40.42px; align-items: center">
+                            رفع منهج<i class="bi-cloud-plus-fill fs-5"></i>
+                        </span>
+                    </label>
+                    <input type="search" id="searchInputId" class="bg-dark text-light py-2 rounded px-3" placeholder="بحث عن منهج" />
+                    <select id="lectureOpenSelectId" class="py-2 px-3 rounded-3 border-white fw-bold" style="background: #cfe2ff; width: 130px;">
+                        <option value="">الكل</option>
+                        <option value="1">مفتوح</option>
+                        <option value="0">مغلق</option>
+                    </select>
+                </div>
+
+                <div style="max-height: 70vh; overflow-y: scroll; direction: ltr;">
+                    <table class="table table-dark table-hover table-rounded d-rtl text-center mb-0" style="border: 1px solid #eeeeee7a">
+                        <thead style="color: rgb(13 202 240); position: sticky; top: -1px; z-index: 0;" >
+                            <tr>
+                                <td>اسم المنهج</td>
+                                <td>عدد الفصول</td>
+                                <td></td>
+                            </tr>
+                        </thead>
+                        <tbody id="lecturesTableBodyId"></tbody>
+                    </table>
+                </div>
+            </div>  
+        </section>
+
+    </main>
+
+    <script src="/js/axios.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/select.options.js"></script>
+    <script src="/js/admin.lectures.js"></script>
+
+</body>
+</html>

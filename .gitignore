@@ -1,0 +1,6 @@
+.vscode/
+delete/
+.env
+/database/
+storage/
+batchs/

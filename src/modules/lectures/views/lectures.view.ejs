@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap-icons.css" />
+    <link rel="stylesheet" href="/css/docs.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <style>     
+        .form-input {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            padding: 30px 0;
+            box-shadow: 0 0 16px 5px #ffffff47;;
+        }
+
+        .form-input button {
+            border: none;
+            border-bottom: 2px solid var(--main);
+            width: max-content;
+        }
+
+        .form-input button:hover {
+            border: none;
+            border-bottom: 2px solid white;
+            background-color: var(--main) !important;
+            color: black !important;
+            border-radius: 5px; 
+        }
+    </style>
+    <title>المناهج</title>
+</head>
+
+<body class="position-relative">
+
+    <%- include("../../common/views/public.navbar.view.ejs") %>
+
+    <main class="text-light d-flex align-items-center gap-5 flex-column">
+        <section class="container flex-wrap gap-4 align-items-center justify-content-center mb-5">
+            <div class="d-flex gap-4 justify-content-center align-items-center p-2 input-container w-100 mb-2">
+                <input type="search" id="searchInputId" class="bg-dark text-light py-2 rounded px-3 w-50" placeholder="بحث عن منهج" />
+            </div>
+            <div style="max-height: 70vh; overflow-y: scroll; direction: ltr;">
+                <table class="table table-dark table-hover table-rounded d-rtl text-center mb-0" style="border: 1px solid #eeeeee7a">
+                    <thead style="color: rgb(13 202 240); position: sticky; top: -1px;" >
+                        <tr>
+                            <td>اسم المنهج</td>
+                            <td>عدد الفصول</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody id="lecturesTableBodyId"></tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="/js/axios.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/select.options.js"></script>
+    <script src="/js/lectures.js"></script>
+
+</body>
+</html>

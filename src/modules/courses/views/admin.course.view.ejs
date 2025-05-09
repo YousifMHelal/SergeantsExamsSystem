@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/bootstrap-icons.css" />
+    <link rel="stylesheet" href="/css/docs.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <title>اسم المحاضرة</title>
+</head>
+<body>
+
+    <%- include("../../common/views/navbar.view.ejs") %>
+    
+    <main class="text-light d-flex align-items-center gap-4 flex-column">
+
+        <div class="bg-dark px-5 py-2 rounded-pill" style="border: 2px solid var(--main)">
+            <h3 id="courseNameHeaderId"></h3>
+        </div>
+
+        <section id="videosContainerId" class="d-flex flex-wrap gap-4 align-items-center justify-content-center mb-5"></section>
+
+    </main>
+
+    <script src="/js/axios.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/admin.course.js"></script>
+</body>
+</html>

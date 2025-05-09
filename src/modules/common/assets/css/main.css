@@ -1,0 +1,128 @@
+:root {
+  --main: rgb(13 202 240);
+  --sub: #087990;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  direction: rtl;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+body {
+  background-image: url("/images/blue-black-desktop-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#uploadFileButtonId:disabled {
+  display: none;
+}
+
+td input {
+  width: 3rem;
+  padding: 2px 5px;
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+
+::-webkit-scrollbar{
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb{
+  background: var(--main);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-track{
+  background: #212529;
+  border-radius: 6px;
+}
+
+.enter-exam,
+.resume-exam,
+.not-open-exam {
+  padding: 5px 20px;
+  background: rgba(58, 216, 58, 0.767);
+  border-radius: 20px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+}
+
+.enter-exam {
+  background: rgba(58, 216, 58, 0.767);
+}
+
+.resume-exam {
+  background: rgba(13, 202, 240, 0.808);
+}
+
+.not-open-exam {
+  background: transparent;
+  color: rgb(124, 32, 32);
+}
+
+
+.d-rtl {
+  direction: rtl;
+}
+
+.form {
+  height: 100dvh;
+}
+
+input {
+  border: none;
+  border-bottom: 3px solid #ddd;
+  width: 350px;
+  outline: none;
+}
+
+.input-container {
+  width: max-content;
+  margin: auto;
+}
+
+.answer {
+  
+  border: none;
+  outline: none;
+  background: transparent;
+  font-weight: 900;
+  font-size: 25px;
+  width: 500px;
+  text-align: center;
+}
+
+.pagination {
+  padding: 5px 45px;
+  border: none;
+  outline: none;
+  font-weight: 900;
+  font-size: 22px;
+}
+
+.active{
+    background: rgb(81, 173, 53) !important;
+    border-radius: 8px;
+}
+
+.nav-active{
+  color: var(--main) !important;
+}
+
+@media (max-width: 647px) {
+  .Bg-contianer {
+    display: none;
+  }
+}
